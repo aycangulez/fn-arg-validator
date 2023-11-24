@@ -21,8 +21,63 @@ const is = (function () {
         return result;
     };
 
+    this.any = function any() {
+        return true;
+    };
+
+    this.array = function array(v) {
+        return _.isArray(v);
+    };
+
+    this.maybeArray = function maybeArray(v) {
+        return _.isNil(v) || this.array(v);
+    };
+
+    this.boolean = function boolean(v) {
+        return _.isBoolean(v);
+    };
+
+    this.maybeBoolean = function maybeBoolean(v) {
+        return _.isNil(v) || this.boolean(v);
+    };
+
+    this.func = function func(v) {
+        return _.isFunction(v);
+    };
+
+    this.maybeFunc = function maybeFunc(v) {
+        return _.isNil(v) || this.func(v);
+    };
+
+    this.number = function number(v) {
+        return _.isNumber(v);
+    };
+
+    this.maybeNumber = function maybeNumber(v) {
+        return _.isNil(v) || this.number(v);
+    };
+
+    this.numberGreaterThan = (x) =>
+        function numberGreaterThan(v) {
+            return _.isNumber(v) && v > x;
+        };
+
+    this.numberLessThan = (x) =>
+        function numberLessThan(v) {
+            return _.isNumber(v) && v < x;
+        };
+
+    this.numberBetween = (x1, x2) =>
+        function numberBetween(v) {
+            return _.isNumber(v) && v >= x1 && v <= x2;
+        };
+
     this.string = function string(v) {
         return _.isString(v);
+    };
+
+    this.maybeString = function maybeString(v) {
+        return _.isNil(v) || this.string(v);
     };
 
     this.stringLongerThan = (x) =>
