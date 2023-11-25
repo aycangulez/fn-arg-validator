@@ -15,7 +15,7 @@ const is = require('fn-arg-validator');
 
 function createUser(firstName, lastName, birthDate) {
     is.valid(is.string, is.string, is.date, arguments);
-	// ...
+    // ...
 }
 
 createUser('Thomas', 'Anderson', '1971-09-13');
@@ -34,7 +34,7 @@ In addition to strict type checks, it's possible to do things like string length
 ```js
 function createUser(firstName, lastName, birthDate) {
     is.valid(is.stringBetween(1, 20), is.stringShorterThan(20), is.maybeDate, arguments);
-	// ...
+    // ...
 }
 ```
 
