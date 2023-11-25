@@ -1,20 +1,21 @@
 const _ = require('lodash');
 
 const is = (function () {
-    const logLevels = { ERROR: 0, WARN: 1, INFO: 2 };
+    const logLevels = { OFF: 0, FATAL: 1, ERROR: 2, WARN: 3, INFO: 4, DEBUG: 5, TRACE: 6, ALL: 7 };
     this.logLevel = 'WARN';
     this.log = console;
     this.warn = (message) => (logLevels[this.logLevel] >= logLevels['WARN'] ? log.warn(message) : false);
-    this.info = (message) => (logLevels[this.logLevel] >= logLevels['INFO'] ? log.info(message) : false);
+    this.debug = (message) => (logLevels[this.logLevel] >= logLevels['DEBUG'] ? log.debug(message) : false);
+
     this.valid = function () {
         const funcs = _.initial(arguments);
         const args = _.last(arguments);
         let result = true;
         _.each(funcs, (func, i) => {
             if (func(args[i])) {
-                this.info(args[i] + ' passed ' + func.name + ' check');
+                this.debug(JSON.stringify(args[i]) + ' passed ' + func.name + ' check');
             } else {
-                this.warn(args[i] + ' failed ' + func.name + ' check');
+                this.warn(JSON.stringify(args[i]) + ' failed ' + func.name + ' check');
                 result = false;
             }
         });
@@ -41,6 +42,14 @@ const is = (function () {
         return _.isNil(v) || this.boolean(v);
     };
 
+    this.date = function date(v) {
+        return _.isDate(v);
+    };
+
+    this.maybeDate = function maybeDate(v) {
+        return _.isNil(v) || this.date(v);
+    };
+
     this.func = function func(v) {
         return _.isFunction(v);
     };
@@ -57,19 +66,30 @@ const is = (function () {
         return _.isNil(v) || this.number(v);
     };
 
-    this.numberGreaterThan = (x) =>
+    this.numberGreaterThan = (n) =>
         function numberGreaterThan(v) {
-            return _.isNumber(v) && v > x;
+            return _.isNumber(v) && v > n;
         };
 
-    this.numberLessThan = (x) =>
+    this.numberLessThan = (n) =>
         function numberLessThan(v) {
-            return _.isNumber(v) && v < x;
+            return _.isNumber(v) && v < n;
         };
 
-    this.numberBetween = (x1, x2) =>
+    this.numberBetween = (n1, n2) =>
         function numberBetween(v) {
-            return _.isNumber(v) && v >= x1 && v <= x2;
+            return _.isNumber(v) && v >= n1 && v <= n2;
+        };
+
+    this.objectWithProperties = (props) =>
+        function objectWithProperties(v) {
+            let result = true;
+            _.each(props, (typeFunc, prop) => {
+                if (!typeFunc(_.get(v, prop))) {
+                    result = false;
+                }
+            });
+            return result;
         };
 
     this.string = function string(v) {
@@ -80,19 +100,19 @@ const is = (function () {
         return _.isNil(v) || this.string(v);
     };
 
-    this.stringLongerThan = (x) =>
+    this.stringLongerThan = (n) =>
         function stringLongerThan(v) {
-            return _.isString(v) && _.size(v) > x;
+            return _.isString(v) && _.size(v) > n;
         };
 
-    this.stringShorterThan = (x) =>
+    this.stringShorterThan = (n) =>
         function stringShorterThan(v) {
-            return _.isString(v) && _.size(v) < x;
+            return _.isString(v) && _.size(v) < n;
         };
 
-    this.stringBetween = (x1, x2) =>
+    this.stringBetween = (n1, n2) =>
         function stringBetween(v) {
-            return _.isString(v) && _.size(v) >= x1 && _.size(v) <= x2;
+            return _.isString(v) && _.size(v) >= n1 && _.size(v) <= n2;
         };
 
     return this;
