@@ -85,6 +85,7 @@ Error: Invalid user object
 * **is.date:** Returns true if the argument is a Date object.
 * **is.func:** Returns true if the argument is a function.
 * **is.number:** Returns true if the argument is a number.
+* **is.object:** Returns true if the argument is an object.
 * **is.string:** Returns true if the argument is a string.
 
 ### Maybes
@@ -92,7 +93,8 @@ Error: Invalid user object
 * **is.maybeBoolean:** Returns true if the argument is a boolean or undefined/null.
 * **is.maybeDate:** Returns true if the argument is a Date object or undefined/null.
 * **is.maybeFunc:** Returns true if the argument is a function or undefined/null.
-* **is.maybeNumber:** Returns true if the argument is a number and or undefined/null.
+* **is.maybeNumber:** Returns true if the argument is a number or undefined/null.
+* **is.maybeObject:** Returns true if the argument is an object or undefined/null.
 * **is.maybeString:** Returns true if the argument is string or undefined/null.
 
 ### Boundary Checks
