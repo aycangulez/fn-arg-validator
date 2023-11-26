@@ -42,6 +42,14 @@ const is = (function () {
         return _.isNil(v) || this.boolean(v);
     };
 
+    this.buffer = function buffer(v) {
+        return _.isBuffer(v);
+    };
+
+    this.maybeBuffer = function maybeBuffer(v) {
+        return _.isNil(v) || this.buffer(v);
+    };
+
     this.date = function date(v) {
         return _.isDate(v);
     };

@@ -82,6 +82,7 @@ Error: Invalid user object
 
 * **is.array:** Returns true if the argument is an array.
 * **is.boolean:** Returns true if the argument is a boolean.
+* **is.buffer:** Returns true if the argument is a buffer.
 * **is.date:** Returns true if the argument is a Date object.
 * **is.func:** Returns true if the argument is a function.
 * **is.number:** Returns true if the argument is a number.
@@ -91,6 +92,7 @@ Error: Invalid user object
 ### Maybes
 * **is.maybeArray:** Returns true if the argument is an array or undefined/null.
 * **is.maybeBoolean:** Returns true if the argument is a boolean or undefined/null.
+* **is.maybeBuffer:** Returns true if the argument is a buffer or undefined/null.
 * **is.maybeDate:** Returns true if the argument is a Date object or undefined/null.
 * **is.maybeFunc:** Returns true if the argument is a function or undefined/null.
 * **is.maybeNumber:** Returns true if the argument is a number or undefined/null.
@@ -112,7 +114,7 @@ Error: Invalid user object
 * **is.any:** Returns true for everything. Great for skipping validation for certain arguments.
 
 ## Passing your Own Type Check Functions
-It's important for your functions to have a name since **is.valid** uses the function names for logging purposes.
+It's important for your functions to have names since **is.valid** uses them for logging purposes.
 
 ## Log Configuration
 By default, fn-arg-validator uses the *console* object for logging. However, this can be configured by assigning a different logger to **is.log**.

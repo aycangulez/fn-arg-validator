@@ -53,6 +53,24 @@ describe('is.maybeBoolean', function () {
     });
 });
 
+describe('is.buffer', function () {
+    it('should return true for buffers', function () {
+        is.buffer.name.should.equal('buffer');
+        is.buffer(Buffer.alloc(2)).should.equal(true);
+        is.buffer('2').should.equal(false);
+    });
+});
+
+describe('is.maybeBuffer', function () {
+    it('should return true for buffers and nil values', function () {
+        is.maybeBuffer.name.should.equal('maybeBuffer');
+        is.maybeBuffer(Buffer.alloc(2)).should.equal(true);
+        is.maybeBuffer('2').should.equal(false);
+        is.maybeBuffer().should.equal(true);
+        is.maybeBuffer(null).should.equal(true);
+    });
+});
+
 describe('is.date', function () {
     it('should return true for date objects', function () {
         is.date.name.should.equal('date');
