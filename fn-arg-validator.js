@@ -1,4 +1,4 @@
-const _ = require('lodash');
+var _ = require ? require('lodash') : 'Load lodash manually in browser';
 
 const is = (function () {
     const logLevels = { OFF: 0, FATAL: 1, ERROR: 2, WARN: 3, INFO: 4, DEBUG: 5, TRACE: 6, ALL: 7 };
@@ -80,6 +80,14 @@ const is = (function () {
         function numberBetween(v) {
             return _.isNumber(v) && v >= n1 && v <= n2;
         };
+
+    this.object = function object(v) {
+        return _.isObject(v);
+    };
+
+    this.maybeObject = function maybeObject(v) {
+        return _.isNil(v) || this.object(v);
+    };
 
     this.objectWithProperties = (props) =>
         function objectWithProperties(v) {

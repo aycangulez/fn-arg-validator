@@ -2,8 +2,19 @@ fn-arg-validator is a lightweight JavaScript library for validating function arg
 
 ## Installation
 
+### Node.js
+
 ```bash
 npm install --save fn-arg-validator
+```
+
+### Browsers
+
+Install as above and use the `fn-arg-validator.js` file found in the node_modules directory. You will also need to include lodash if you aren't already using it in your application.
+
+```html
+<script src="./node_modules/fn-arg-validator/fn-arg-validator.js"></script>
+<script src="./node_modules/lodash/lodash.js"></script>
 ```
 
 ## Usage
@@ -29,6 +40,7 @@ The *arguments* object isn't available for arrow functions, so you need to type 
 
 The above code will normally log a warning and continue to run, but you may choose to check the return value of **is.valid** to stop the execution of the rest of the code. The decision depends on how you want to handle type errors. Sometimes, a warning is enough, and sometimes you need to be strict and throw an error.
 
+### Boundary Checks and Maybe Types
 In addition to strict type checks, it's possible to do things like string length checks, and use maybe types that also accept undefined/null values:
 
 ```js
@@ -38,7 +50,9 @@ function createUser(firstName, lastName, birthDate) {
 }
 ```
 
-fn-arg-validator can also be used to check if an object has the specified properties and those properties have the correct types.
+### Object Property and Type Checks
+
+fn-arg-validator can be used to check if an object has the specified properties and those properties have the correct types.
 
 ```js
 const userObjectProps = { firstName: is.string, lastName: is.string, birthDate: is.date };
@@ -59,7 +73,7 @@ Error: Invalid user object
 */
 ```
 
-Please note that while nested objects aren't supported, you can still individually check each nested object.
+**Note:** Validation of nested objects isn't supported, but you can still check each nested object individually.
 
 
 ## Built-in Type Check Functions
