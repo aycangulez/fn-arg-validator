@@ -1,11 +1,16 @@
 {
     "name": "fn-arg-validator",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A lightweight library for validating function arguments.",
     "main": "fn-arg-validator.js",
     "scripts": {
         "test": "mocha"
     },
+    "keywords": [
+        "schema",
+        "validation"
+    ],
+    "homepage": "https://github.com/aycangulez/fn-arg-validator",
     "author": "Aycan Gulez",
     "license": "MIT",
     "dependencies": {
