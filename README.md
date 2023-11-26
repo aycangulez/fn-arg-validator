@@ -52,21 +52,21 @@ function createUser(firstName, lastName, birthDate) {
 
 ### Object Property and Type Checks
 
-fn-arg-validator can be used to check if an object has the specified properties and those properties have the correct types.
+**is.objectWithProperties** can be used to check if an object has the specified properties and those properties have the correct types.
 
 ```js
-const userObjectProps = { firstName: is.string, lastName: is.string, birthDate: is.date };
+const userObjectProps = { id: is.number, firstName: is.string, lastName: is.string, birthDate: is.date };
 
-function updateUserData(user) {
+function updateUser(user) {
     if (!is.valid(is.objectWithProperties(userObjectProps), arguments)) {
         throw new Error('Invalid user object');
     }
     // ...
 }
 
-updateUserData({ firstName: 'Thomas', lastName: 'Anderson', birthDate: '1971-09-13' });
-/* Should fail with:
-{"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProperties check
+updateUser({ id: 1, firstName: 'Thomas', lastName: 'Anderson', birthDate: '1971-09-13' });
+/*
+{"id":1,"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProperties check
 
 Error: Invalid user object
 ...
