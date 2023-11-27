@@ -1,11 +1,12 @@
-var _ = require ? require('lodash') : 'Load lodash manually in browser';
+try {
+    var _ = require('lodash');
+} catch (e) {}
 
 const is = (function () {
     const logLevels = { OFF: 0, FATAL: 1, ERROR: 2, WARN: 3, INFO: 4, DEBUG: 5, TRACE: 6, ALL: 7 };
-    this.logLevel = 'WARN';
-    this.log = console;
-    this.warn = (message) => (logLevels[this.logLevel] >= logLevels['WARN'] ? log.warn(message) : false);
-    this.debug = (message) => (logLevels[this.logLevel] >= logLevels['DEBUG'] ? log.debug(message) : false);
+    this.config = { logLevel: 'WARN', log: console };
+    const warn = (message) => (logLevels[config.logLevel] >= logLevels['WARN'] ? config.log.warn(message) : false);
+    const debug = (message) => (logLevels[config.logLevel] >= logLevels['DEBUG'] ? config.log.debug(message) : false);
 
     this.valid = function () {
         const funcs = _.initial(arguments);
@@ -13,9 +14,9 @@ const is = (function () {
         let result = true;
         _.each(funcs, (func, i) => {
             if (func(args[i])) {
-                this.debug(JSON.stringify(args[i]) + ' passed ' + func.name + ' check');
+                debug(JSON.stringify(args[i]) + ' passed ' + func.name + ' check');
             } else {
-                this.warn(JSON.stringify(args[i]) + ' failed ' + func.name + ' check');
+                warn(JSON.stringify(args[i]) + ' failed ' + func.name + ' check');
                 result = false;
             }
         });

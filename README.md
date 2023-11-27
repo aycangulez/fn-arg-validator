@@ -66,7 +66,7 @@ function updateUser(user) {
 
 updateUser({ id: 1, firstName: 'Thomas', lastName: 'Anderson', birthDate: '1971-09-13' });
 /*
-{"id":1,"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProperties check
+[WARN] {"id":1,"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProperties check
 
 Error: Invalid user object
 ...
@@ -114,9 +114,9 @@ Error: Invalid user object
 * **is.any:** Returns true for everything. Great for skipping validation for certain arguments.
 
 ## Passing your Own Type Check Functions
-It's important for your functions to have names since **is.valid** uses them for logging purposes.
+The beauty of a functional style interface is that you aren’t limited to the built-in validation functions, you can simply pass your own. The only requirement is to give your functions names since is.valid uses function names for logging purposes.
 
 ## Log Configuration
-By default, fn-arg-validator uses the *console* object for logging. However, this can be configured by assigning a different logger to **is.log**.
+By default, fn-arg-validator uses the *console* object for logging. However, this can be configured by assigning a different logger to **is.config.log**.
 
-The log level can be set by changing the value of **is.logLevel**. The default log level is *'WARN'*, which only logs failed checks. If you would like to see successful validations, you need to set the log level to *'DEBUG'* or higher. To disable all logging, set the log level to *'OFF'*.
+The log level can be set by changing the value of **is.config.logLevel**. The default log level is *'WARN'*, which only logs failed checks. If you would like to see successful validations, you need to set the log level to *'DEBUG'* or higher. To disable all logging, set the log level to *'OFF'*.
