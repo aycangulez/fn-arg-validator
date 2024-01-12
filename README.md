@@ -107,6 +107,9 @@ Error: Invalid user object
 * **is.stringShorterThan(n):** Returns true if the argument is a string and its length is shorter than *n*.
 * **is.stringBetween(n1, n2):** Returns true if the argument is a string and its length is between *n1* and *n2* (inclusive).
 
+### Mixed Types
+* **is.oneOf** returns true if an argument's type is one of the passed types. For example, **is.oneOf(is.number, is.array)** returns true for *1* and *[1]*, but not *'1'*.
+
 ### Object Property and Type Checks
 * **objectWithProperties(props):** Returns true if the argument is an object and the property-type pairs match the argument's properties and their types.
 

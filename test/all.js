@@ -166,6 +166,7 @@ describe('is.maybeObject', function () {
         is.maybeObject(null).should.equal(true);
     });
 });
+
 describe('is.objectWithProperties', function () {
     it('should return true for objects with given properties', function () {
         is.objectWithProperties({}).name.should.equal('objectWithProperties');
@@ -173,6 +174,15 @@ describe('is.objectWithProperties', function () {
         is.objectWithProperties({ firstName: is.string, lastName: is.string, birthDate: is.date })(
             userObject
         ).should.equal(true);
+    });
+});
+
+describe('is.oneOf', function () {
+    it('should return true if a value belongs to one of given types', function () {
+        is.oneOf.name.should.equal('oneOf');
+        is.oneOf(is.number, is.array)(1).should.equal(true);
+        is.oneOf(is.number, is.array)([1]).should.equal(true);
+        is.oneOf(is.number, is.array)('1').should.equal(false);
     });
 });
 

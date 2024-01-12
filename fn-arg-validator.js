@@ -109,6 +109,13 @@ const is = (function () {
             return result;
         };
 
+    this.oneOf = function oneOf() {
+        let typeFuncs = arguments;
+        return function oneOf(v) {
+            return _.some(typeFuncs, (typeFunc) => typeFunc(v));
+        };
+    };
+
     this.string = function string(v) {
         return _.isString(v);
     };
