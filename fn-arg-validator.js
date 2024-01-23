@@ -98,8 +98,8 @@ const is = (function () {
         return _.isNil(v) || this.object(v);
     };
 
-    this.objectWithProperties = (props) =>
-        function objectWithProperties(v) {
+    this.objectWithProps = (props) =>
+        function objectWithProps(v) {
             let result = true;
             _.each(props, (typeFunc, prop) => {
                 if (!typeFunc(_.get(v, prop))) {

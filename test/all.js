@@ -167,13 +167,13 @@ describe('is.maybeObject', function () {
     });
 });
 
-describe('is.objectWithProperties', function () {
+describe('is.objectWithProps', function () {
     it('should return true for objects with given properties', function () {
-        is.objectWithProperties({}).name.should.equal('objectWithProperties');
+        is.objectWithProps({}).name.should.equal('objectWithProps');
         let userObject = { firstName: 'Thomas', lastName: 'Anderson', birthDate: new Date() };
-        is.objectWithProperties({ firstName: is.string, lastName: is.string, birthDate: is.date })(
-            userObject
-        ).should.equal(true);
+        is.objectWithProps({ firstName: is.string, lastName: is.string, birthDate: is.date })(userObject).should.equal(
+            true
+        );
     });
 });
 

@@ -1,7 +1,7 @@
 {
     "name": "fn-arg-validator",
-    "version": "1.0.4",
-    "description": "A lightweight library for validating function arguments.",
+    "version": "1.0.5",
+    "description": "A lightweight library to validate function arguments.",
     "main": "fn-arg-validator.js",
     "scripts": {
         "test": "mocha"

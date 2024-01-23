@@ -52,13 +52,13 @@ function createUser(firstName, lastName, birthDate) {
 
 ### Object Property and Type Checks
 
-**is.objectWithProperties** can be used to check if an object has the specified properties and those properties have the correct types.
+**is.objectWithProps** can be used to check if an object has the specified properties and those properties have the correct types.
 
 ```js
 const userObjectProps = { id: is.number, firstName: is.string, lastName: is.string, birthDate: is.date };
 
 function updateUser(user) {
-    if (!is.valid(is.objectWithProperties(userObjectProps), arguments)) {
+    if (!is.valid(is.objectWithProps(userObjectProps), arguments)) {
         throw new Error('Invalid user object');
     }
     // ...
