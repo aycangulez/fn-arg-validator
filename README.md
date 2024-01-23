@@ -66,7 +66,7 @@ function updateUser(user) {
 
 updateUser({ id: 1, firstName: 'Thomas', lastName: 'Anderson', birthDate: '1971-09-13' });
 /*
-[WARN] {"id":1,"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProperties check
+[WARN] {"id":1,"firstName":"Thomas","lastName":"Anderson","birthDate":"1971-09-13"} failed objectWithProps check
 
 Error: Invalid user object
 ...
@@ -111,7 +111,7 @@ Error: Invalid user object
 * **is.oneOf** returns true if an argument's type is one of the passed types. For example, **is.oneOf(is.number, is.array)** returns true for *1* and *[1]*, but not *'1'*.
 
 ### Object Property and Type Checks
-* **objectWithProperties(props):** Returns true if the argument is an object and the property-type pairs match the argument's properties and their types.
+* **is.objectWithProps(props):** Returns true if the argument is an object and the property-type pairs match the argument's properties and their types.
 
 ### Catch-all
 * **is.any:** Returns true for everything. Great for skipping validation for certain arguments.
