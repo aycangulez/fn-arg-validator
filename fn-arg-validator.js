@@ -4,7 +4,7 @@ try {
 
 const is = (function () {
     const logLevels = { OFF: 0, FATAL: 1, ERROR: 2, WARN: 3, INFO: 4, DEBUG: 5, TRACE: 6, ALL: 7 };
-    this.config = { logLevel: 'WARN', log: console };
+    this.config = { logLevel: 'WARN', log: console, throw: false };
     const warn = (message) => (logLevels[config.logLevel] >= logLevels['WARN'] ? config.log.warn(message) : false);
     const debug = (message) => (logLevels[config.logLevel] >= logLevels['DEBUG'] ? config.log.debug(message) : false);
 
@@ -16,7 +16,11 @@ const is = (function () {
             if (func(args[i])) {
                 debug(JSON.stringify(args[i]) + ' passed ' + func.name + ' check');
             } else {
-                warn(JSON.stringify(args[i]) + ' failed ' + func.name + ' check');
+                let warning = JSON.stringify(args[i]) + ' failed ' + func.name + ' check';
+                if (this.config.throw) {
+                    throw new Error(warning);
+                }
+                log.warn(warning);
                 result = false;
             }
         });

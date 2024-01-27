@@ -119,6 +119,9 @@ Error: Invalid user object
 ## Passing your Own Type Check Functions
 The beauty of a functional style interface is that you aren’t limited to the built-in validation functions, you can simply pass your own. The only requirement is to give your functions names since is.valid uses function names for logging purposes.
 
+## Throwing Exceptions
+fn-arg-validator can be configured to throw exceptions on failed checks when **is.config.throw** is set to *true*.
+
 ## Log Configuration
 By default, fn-arg-validator uses the *console* object for logging. However, this can be configured by assigning a different logger to **is.config.log**.
 
