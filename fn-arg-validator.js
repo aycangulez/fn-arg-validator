@@ -20,7 +20,7 @@ const is = (function () {
                 if (this.config.throw) {
                     throw new Error(warning);
                 }
-                log.warn(warning);
+                warn(warning);
                 result = false;
             }
         });
