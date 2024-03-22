@@ -79,14 +79,24 @@ const is = (function () {
         return _.isNil(v) || this.number(v);
     };
 
-    this.numberGreaterThan = (n) =>
-        function numberGreaterThan(v) {
+    this.numberGT = (n) =>
+        function numberGT(v) {
             return _.isNumber(v) && v > n;
         };
 
-    this.numberLessThan = (n) =>
-        function numberLessThan(v) {
+    this.numberGTE = (n) =>
+        function numberGTE(v) {
+            return _.isNumber(v) && v >= n;
+        };
+
+    this.numberLT = (n) =>
+        function numberLT(v) {
             return _.isNumber(v) && v < n;
+        };
+
+    this.numberLTE = (n) =>
+        function numberLTE(v) {
+            return _.isNumber(v) && v <= n;
         };
 
     this.numberBetween = (n1, n2) =>
@@ -128,14 +138,24 @@ const is = (function () {
         return _.isNil(v) || this.string(v);
     };
 
-    this.stringLongerThan = (n) =>
-        function stringLongerThan(v) {
+    this.stringGT = (n) =>
+        function stringGT(v) {
             return _.isString(v) && _.size(v) > n;
         };
 
-    this.stringShorterThan = (n) =>
-        function stringShorterThan(v) {
+    this.stringGTE = (n) =>
+        function stringGTE(v) {
+            return _.isString(v) && _.size(v) >= n;
+        };
+
+    this.stringLT = (n) =>
+        function stringLT(v) {
             return _.isString(v) && _.size(v) < n;
+        };
+
+    this.stringLTE = (n) =>
+        function stringLTE(v) {
+            return _.isString(v) && _.size(v) <= n;
         };
 
     this.stringBetween = (n1, n2) =>

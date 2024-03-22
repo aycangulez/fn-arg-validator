@@ -125,19 +125,37 @@ describe('is.maybeNumber', function () {
     });
 });
 
-describe('is.numberGreaterThan', function () {
+describe('is.numberGT', function () {
     it('should return true for numbers greater than n', function () {
-        is.numberGreaterThan(1).name.should.equal('numberGreaterThan');
-        is.numberGreaterThan(1)(2).should.equal(true);
-        is.numberGreaterThan(1)(1).should.equal(false);
+        is.numberGT(1).name.should.equal('numberGT');
+        is.numberGT(1)(2).should.equal(true);
+        is.numberGT(1)(1).should.equal(false);
     });
 });
 
-describe('is.numberLessThan', function () {
+describe('is.numberGTE', function () {
+    it('should return true for numbers greater than or equal to n', function () {
+        is.numberGTE(1).name.should.equal('numberGTE');
+        is.numberGTE(1)(2).should.equal(true);
+        is.numberGTE(1)(1).should.equal(true);
+        is.numberGTE(1)(0).should.equal(false);
+    });
+});
+
+describe('is.numberLT', function () {
     it('should return true for numbers less than n', function () {
-        is.numberLessThan(2).name.should.equal('numberLessThan');
-        is.numberLessThan(2)(1).should.equal(true);
-        is.numberLessThan(1)(1).should.equal(false);
+        is.numberLT(2).name.should.equal('numberLT');
+        is.numberLT(2)(1).should.equal(true);
+        is.numberLT(1)(1).should.equal(false);
+    });
+});
+
+describe('is.numberLTE', function () {
+    it('should return true for numbers less than or equal to n', function () {
+        is.numberLTE(2).name.should.equal('numberLTE');
+        is.numberLTE(2)(1).should.equal(true);
+        is.numberLTE(1)(1).should.equal(true);
+        is.numberLTE(1)(2).should.equal(false);
     });
 });
 
@@ -206,19 +224,37 @@ describe('is.maybeString', function () {
     });
 });
 
-describe('is.stringLongerThan', function () {
-    it('should return true for string lengths longer than n', function () {
-        is.stringLongerThan(2).name.should.equal('stringLongerThan');
-        is.stringLongerThan(2)('123').should.equal(true);
-        is.stringLongerThan(3)('123').should.equal(false);
+describe('is.stringGT', function () {
+    it('should return true for string lengths greater than n', function () {
+        is.stringGT(2).name.should.equal('stringGT');
+        is.stringGT(2)('123').should.equal(true);
+        is.stringGT(3)('123').should.equal(false);
     });
 });
 
-describe('is.stringShorterThan', function () {
-    it('should return true for string lengths shorter than n', function () {
-        is.stringShorterThan(4).name.should.equal('stringShorterThan');
-        is.stringShorterThan(4)('123').should.equal(true);
-        is.stringShorterThan(3)('123').should.equal(false);
+describe('is.stringGTE', function () {
+    it('should return true for string lengths greater than or equal to n', function () {
+        is.stringGTE(2).name.should.equal('stringGTE');
+        is.stringGTE(2)('123').should.equal(true);
+        is.stringGTE(3)('123').should.equal(true);
+        is.stringGTE(3)('12').should.equal(false);
+    });
+});
+
+describe('is.stringLT', function () {
+    it('should return true for string lengths less than n', function () {
+        is.stringLT(4).name.should.equal('stringLT');
+        is.stringLT(4)('123').should.equal(true);
+        is.stringLT(3)('123').should.equal(false);
+    });
+});
+
+describe('is.stringLTE', function () {
+    it('should return true for string lengths less than or equal to n', function () {
+        is.stringLTE(4).name.should.equal('stringLTE');
+        is.stringLTE(4)('123').should.equal(true);
+        is.stringLTE(3)('123').should.equal(true);
+        is.stringLTE(2)('123').should.equal(false);
     });
 });
 

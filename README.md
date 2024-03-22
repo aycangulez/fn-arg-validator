@@ -73,8 +73,17 @@ Error: Invalid user object
 */
 ```
 
-**Note:** Validation of nested objects isn't supported, but you can still check each nested object individually.
+**Note:** You can have nested object propery checks by simply nesting multiple **is.objectWithProps** calls as shown below:
 
+```js
+is.valid(
+    is.objectWithProps({
+        a: is.number,
+        b: is.objectWithProps({ c: is.string, d: is.number }),
+    }),
+    arguments
+);
+```
 
 ## Built-in Type Check Functions
 
@@ -100,11 +109,15 @@ Error: Invalid user object
 * **is.maybeString:** Returns true if the argument is string or undefined/null.
 
 ### Boundary Checks
-* **is.numberGreaterThan(n):** Returns true if the argument is a number and greater than *n*.
-* **is.numberLessThan(n):** Returns true if the argument is a number and less than *n*.
+* **is.numberGT(n):** Returns true if the argument is a number and greater than *n*.
+* **is.numberGTE(n):** Returns true if the argument is a number and greater than or equal to *n*.
+* **is.numberLT(n):** Returns true if the argument is a number and less than *n*.
+* * **is.numberLTE(n):** Returns true if the argument is a number and less than or equal to *n*.
 * **is.numberBetween(n1, n2):** Returns true if the argument is a number and between *n1* and *n2* (inclusive).
-* **is.stringLongerThan(n):** Returns true if the argument is a string and its length is longer than *n*.
-* **is.stringShorterThan(n):** Returns true if the argument is a string and its length is shorter than *n*.
+* **is.stringGT(n):** Returns true if the argument is a string and its length is greater than *n*.
+* * **is.stringGTE(n):** Returns true if the argument is a string and its length is greater than or equal to *n*.
+* **is.stringLT(n):** Returns true if the argument is a string and its length is less than *n*.
+* * **is.stringLTE(n):** Returns true if the argument is a string and its length is less than or equal to *n*.
 * **is.stringBetween(n1, n2):** Returns true if the argument is a string and its length is between *n1* and *n2* (inclusive).
 
 ### Mixed Types
