@@ -112,12 +112,12 @@ is.valid(
 * **is.numberGT(n):** Returns true if the argument is a number and greater than *n*.
 * **is.numberGTE(n):** Returns true if the argument is a number and greater than or equal to *n*.
 * **is.numberLT(n):** Returns true if the argument is a number and less than *n*.
-* * **is.numberLTE(n):** Returns true if the argument is a number and less than or equal to *n*.
+* **is.numberLTE(n):** Returns true if the argument is a number and less than or equal to *n*.
 * **is.numberBetween(n1, n2):** Returns true if the argument is a number and between *n1* and *n2* (inclusive).
 * **is.stringGT(n):** Returns true if the argument is a string and its length is greater than *n*.
-* * **is.stringGTE(n):** Returns true if the argument is a string and its length is greater than or equal to *n*.
+* **is.stringGTE(n):** Returns true if the argument is a string and its length is greater than or equal to *n*.
 * **is.stringLT(n):** Returns true if the argument is a string and its length is less than *n*.
-* * **is.stringLTE(n):** Returns true if the argument is a string and its length is less than or equal to *n*.
+* **is.stringLTE(n):** Returns true if the argument is a string and its length is less than or equal to *n*.
 * **is.stringBetween(n1, n2):** Returns true if the argument is a string and its length is between *n1* and *n2* (inclusive).
 
 ### Mixed Types
