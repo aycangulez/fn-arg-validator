@@ -73,7 +73,7 @@ Error: Invalid user object
 */
 ```
 
-**Note:** You can have nested object propery checks by simply nesting multiple **is.objectWithProps** calls as shown below:
+**Note:** You can have one-level of nested object property checks as shown below:
 
 ```js
 is.valid(
